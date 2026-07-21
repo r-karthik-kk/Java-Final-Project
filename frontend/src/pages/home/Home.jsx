@@ -12,6 +12,9 @@ import {
   Rocket,
 } from "lucide-react";
 import "./Home.css";
+
+import ProjectLogo3 from "../../assets/Project_Logo_3.png";
+
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
   const revealRefs = useRef([]);
@@ -99,10 +102,10 @@ export default function Home() {
       {/* ================= NAVBAR ================= */}
       <nav className={isScrolled ? "scrolled" : ""}>
         <div className="logo-area">
-          <img
-            src="../assests/Project_Logo_3.png"
-            alt="Student Project Innovation Portal Logo"
-          />
+       <img
+  src={ProjectLogo3}
+  alt="Student Project Innovation Portal Logo"
+/>
           <div className="logo-text">
             <h2>STUDENT PROJECT</h2>
             <h3>& INNOVATION PORTAL</h3>
@@ -172,10 +175,10 @@ export default function Home() {
 
         {/* RIGHT SIDE LOGO */}
         <div className="hero-logo">
-          <img
-            src="Project_Logo_3.png"
-            alt="Student Project and Innovation Portal"
-          />
+        <img
+  src={ProjectLogo3}
+  alt="Student Project Innovation Portal Logo"
+/>
           <h2>STUDENT PROJECT</h2>
           <h3>& INNOVATION PORTAL</h3>
         </div>
