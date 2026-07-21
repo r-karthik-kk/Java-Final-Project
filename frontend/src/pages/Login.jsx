@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { FaUser, FaLock, FaUserTag } from "react-icons/fa";
 
 import { login } from "../api/authApi";
+import loginImage from "../assets/Project_Logo_3.png";
 import "./Login.css";
 
 export default function Login() {
@@ -26,11 +26,9 @@ export default function Login() {
         try {
 
             await login({
-
                 role,
                 username: userId,
                 password
-
             });
 
             switch (role) {
@@ -100,85 +98,71 @@ export default function Login() {
 
     return (
 
-        <div className="login-page">
+        <div className="auth-page">
 
-            <div className="login-left">
+            <div className="auth-visual">
 
                 <img
-                    src="/login-illustration.png"
+                    src={loginImage}
                     alt="Project Management"
+                    className="auth-visual-img"
                 />
 
-                <h1>Project Management System</h1>
+                <h1>Project Management<br />System</h1>
 
                 <p>
-
                     Manage Students, Faculty, Departments,
                     Projects and Clients from one secure platform.
-
                 </p>
 
             </div>
 
-            <div className="login-right">
+            <div className="auth-form-side">
 
-                <div className="login-card">
+                <div className="auth-card">
 
-                    <h2>Welcome Back</h2>
+                    <span className="auth-card-tag">ACCESS PORTAL</span>
 
-                    <p>Sign in to continue</p>
+                    <h2 className="auth-title">Welcome Back</h2>
+                    <p className="auth-subtitle">Sign in to continue</p>
 
-                    <div className="input-group">
+                    {/* COMBINED ROLE (30%) + ID (70%) BOX */}
+                    <div className="combo-group">
 
-                        <FaUserTag className="input-icon" />
+                        <div className="combo-role">
 
-                        <select
-                            value={role}
-                            onChange={(e) => setRole(e.target.value)}
-                            disabled={loading}
-                        >
+                            <select
+                                value={role}
+                                onChange={(e) => setRole(e.target.value)}
+                                disabled={loading}
+                            >
+                                <option value="college">College</option>
+                                <option value="department">Department</option>
+                                <option value="faculty">Faculty</option>
+                                <option value="student">Student</option>
+                                <option value="client">Client</option>
+                            </select>
 
-                            <option value="college">
-                                College
-                            </option>
+                        </div>
 
-                            <option value="department">
-                                Department
-                            </option>
+                        <div className="combo-divider"></div>
 
-                            <option value="faculty">
-                                Faculty
-                            </option>
+                        <div className="combo-id">
 
-                            <option value="student">
-                                Student
-                            </option>
+                            <input
+                                type="text"
+                                placeholder={getPlaceholder()}
+                                value={userId}
+                                onChange={(e) => setUserId(e.target.value)}
+                                disabled={loading}
+                            />
 
-                            <option value="client">
-                                Client
-                            </option>
-
-                        </select>
-
-                    </div>
-
-                    <div className="input-group">
-
-                        <FaUser className="input-icon" />
-
-                        <input
-                            type="text"
-                            placeholder={getPlaceholder()}
-                            value={userId}
-                            onChange={(e) => setUserId(e.target.value)}
-                            disabled={loading}
-                        />
+                        </div>
 
                     </div>
 
-                    <div className="input-group">
-
-                        <FaLock className="input-icon" />
+                    {/* PASSWORD BOX (same background as combo box) */}
+                    <div className="password-group">
 
                         <input
                             type="password"
@@ -191,27 +175,18 @@ export default function Login() {
                     </div>
 
                     <button
+                        className="auth-btn ripple-btn"
                         onClick={handleLogin}
                         disabled={loading}
                     >
-
                         {loading ? "Signing In..." : "Login"}
-
                     </button>
 
-                    <div className="login-links">
+                    <div className="auth-links">
 
-                        <Link to="/forgot-password">
+                        <Link to="/forgot-password">Forgot Password?</Link>
 
-                            Forgot Password?
-
-                        </Link>
-
-                        <Link to="/register">
-
-                            Create New Account
-
-                        </Link>
+                        <Link to="/register">Create New Account</Link>
 
                     </div>
 

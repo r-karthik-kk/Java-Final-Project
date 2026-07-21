@@ -1,13 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import {
-    FaUser,
-    FaEnvelope,
-    FaPhone,
-    FaLock,
-    FaUserTag
-} from "react-icons/fa";
 
+import loginImage from "../assets/Project_Logo_3.png";
 import "./Register.css";
 
 export default function Register() {
@@ -99,157 +93,129 @@ export default function Register() {
 
     return (
 
-        <div className="register-page">
+        <div className="auth-page">
 
-            <div className="register-left">
+            <div className="auth-visual">
+
+                <div className="visual-glow"></div>
 
                 <img
-                    src="/register-illustration.png"
+                    src={loginImage}
                     alt="Register"
+                    className="auth-visual-img"
                 />
 
-                <h1>Join Project Management System</h1>
+                <h1>Join Project Management<br />System</h1>
 
                 <p>
-
                     Register to manage projects,
                     students, faculty and departments.
-
                 </p>
+
+                <div className="role-chip-row">
+
+                    <span className="role-chip">Students</span>
+                    <span className="role-chip">Faculty</span>
+                    <span className="role-chip">Departments</span>
+                    <span className="role-chip">Clients</span>
+
+                </div>
 
             </div>
 
-            <div className="register-right">
+            <div className="auth-form-side">
 
-                <div className="register-card">
+                <div className="auth-card">
 
-                    <h2>Create Account</h2>
+                    <span className="auth-card-tag">JOIN THE PORTAL</span>
 
-                    <p>Create your account to continue</p>
+                    <h2 className="auth-title">Create Account</h2>
+                    <p className="auth-subtitle">Create your account to continue</p>
 
-                    <div className="input-group">
+                    {/* COMBINED ROLE (30%) + ID (70%) BOX */}
+                    <div className="combo-group">
 
-                        <FaUserTag className="input-icon"/>
+                        <div className="combo-role">
 
-                        <select
-                            value={role}
-                            onChange={(e)=>setRole(e.target.value)}
-                        >
+                            <select
+                                value={role}
+                                onChange={(e) => setRole(e.target.value)}
+                            >
+                                <option value="college">College</option>
+                                <option value="department">Department</option>
+                                <option value="faculty">Faculty</option>
+                                <option value="student">Student</option>
+                                <option value="client">Client</option>
+                            </select>
 
-                            <option value="college">College</option>
-                            <option value="department">Department</option>
-                            <option value="faculty">Faculty</option>
-                            <option value="student">Student</option>
-                            <option value="client">Client</option>
+                        </div>
 
-                        </select>
+                        <div className="combo-divider"></div>
 
-                    </div>
+                        <div className="combo-id">
 
-                    <div className="input-group">
+                            <input
+                                type="text"
+                                placeholder={getIdPlaceholder()}
+                                value={userId}
+                                onChange={(e) => setUserId(e.target.value)}
+                            />
 
-                        <FaUser className="input-icon"/>
-
-                        <input
-
-                            type="text"
-
-                            placeholder={getIdPlaceholder()}
-
-                            value={userId}
-
-                            onChange={(e)=>setUserId(e.target.value)}
-
-                        />
+                        </div>
 
                     </div>
 
-                    <div className="input-group">
-
-                        <FaUser className="input-icon"/>
+                    <div className="password-group">
 
                         <input
-
                             type="text"
-
                             placeholder="Full Name"
-
                             value={name}
-
-                            onChange={(e)=>setName(e.target.value)}
-
+                            onChange={(e) => setName(e.target.value)}
                         />
 
                     </div>
 
-                    <div className="input-group">
-
-                        <FaEnvelope className="input-icon"/>
+                    <div className="password-group">
 
                         <input
-
                             type="email"
-
                             placeholder="Email"
-
                             value={email}
-
-                            onChange={(e)=>setEmail(e.target.value)}
-
+                            onChange={(e) => setEmail(e.target.value)}
                         />
 
                     </div>
 
-                    <div className="input-group">
-
-                        <FaPhone className="input-icon"/>
+                    <div className="password-group">
 
                         <input
-
                             type="tel"
-
                             placeholder="Mobile Number"
-
                             value={mobile}
-
-                            onChange={(e)=>setMobile(e.target.value)}
-
+                            onChange={(e) => setMobile(e.target.value)}
                         />
 
                     </div>
 
-                    <div className="input-group">
-
-                        <FaLock className="input-icon"/>
+                    <div className="password-group">
 
                         <input
-
                             type="password"
-
                             placeholder="Password"
-
                             value={password}
-
-                            onChange={(e)=>setPassword(e.target.value)}
-
+                            onChange={(e) => setPassword(e.target.value)}
                         />
 
                     </div>
 
-                    <div className="input-group">
-
-                        <FaLock className="input-icon"/>
+                    <div className="password-group">
 
                         <input
-
                             type="password"
-
                             placeholder="Confirm Password"
-
                             value={confirmPassword}
-
-                            onChange={(e)=>setConfirmPassword(e.target.value)}
-
+                            onChange={(e) => setConfirmPassword(e.target.value)}
                         />
 
                     </div>
@@ -257,39 +223,28 @@ export default function Register() {
                     <div className="terms">
 
                         <input
-
                             type="checkbox"
-
                             checked={agree}
-
-                            onChange={(e)=>setAgree(e.target.checked)}
-
+                            onChange={(e) => setAgree(e.target.checked)}
                         />
 
                         <span>
-
                             I agree to the Terms & Conditions
                             and Privacy Policy.
-
                         </span>
 
                     </div>
 
-                    <button onClick={handleRegister}>
-
-                        Create Account
-
+                    <button
+                        className="auth-btn ripple-btn"
+                        onClick={handleRegister}
+                    >
+                        Create Account <span className="btn-arrow">→</span>
                     </button>
 
-                    <div className="bottom-link">
+                    <div className="auth-links">
 
-                        Already have an account?
-
-                        <Link to="/">
-
-                            Sign In
-
-                        </Link>
+                        <Link to="/">Already have an account? Sign In</Link>
 
                     </div>
 
