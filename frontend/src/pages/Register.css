@@ -1,0 +1,413 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#F1F5F9;
+}
+
+/* ===========================
+   PAGE
+=========================== */
+
+.register-page{
+
+    width:100%;
+    min-height:100vh;
+
+    display:flex;
+
+    background:#F1F5F9;
+
+}
+
+/* ===========================
+   LEFT PANEL
+=========================== */
+
+.register-left{
+
+    flex:1;
+
+    background:linear-gradient(135deg,#2563EB,#1E40AF);
+
+    color:#fff;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    padding:50px;
+
+}
+
+.register-left img{
+
+    width:80%;
+    max-width:450px;
+
+    margin-bottom:35px;
+
+}
+
+.register-left h1{
+
+    font-size:40px;
+
+    margin-bottom:18px;
+
+    text-align:center;
+
+}
+
+.register-left p{
+
+    max-width:500px;
+
+    text-align:center;
+
+    line-height:1.8;
+
+    font-size:18px;
+
+    opacity:.95;
+
+}
+
+/* ===========================
+   RIGHT PANEL
+=========================== */
+
+.register-right{
+
+    flex:1;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px;
+
+}
+
+/* ===========================
+   CARD
+=========================== */
+
+.register-card{
+
+    width:100%;
+    max-width:470px;
+
+    background:#FFFFFF;
+
+    border-radius:20px;
+
+    padding:35px;
+
+    box-shadow:0 12px 35px rgba(0,0,0,.12);
+
+}
+
+.register-card h2{
+
+    text-align:center;
+
+    color:#1E293B;
+
+    font-size:30px;
+
+    margin-bottom:8px;
+
+}
+
+.register-card p{
+
+    text-align:center;
+
+    color:#64748B;
+
+    margin-bottom:28px;
+
+}
+
+/* ===========================
+   INPUTS
+=========================== */
+
+.input-group{
+
+    position:relative;
+
+    margin-bottom:18px;
+
+}
+
+.input-icon{
+
+    position:absolute;
+
+    left:16px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    color:#64748B;
+
+    font-size:16px;
+
+}
+
+.input-group input,
+.input-group select{
+
+    width:100%;
+
+    height:50px;
+
+    padding-left:48px;
+    padding-right:15px;
+
+    border:1px solid #CBD5E1;
+
+    border-radius:10px;
+
+    outline:none;
+
+    background:#fff;
+
+    font-size:15px;
+
+    transition:.3s;
+
+}
+
+.input-group input:focus,
+.input-group select:focus{
+
+    border-color:#2563EB;
+
+    box-shadow:0 0 0 4px rgba(37,99,235,.15);
+
+}
+
+.input-group select{
+
+    cursor:pointer;
+
+}
+
+/* ===========================
+   TERMS
+=========================== */
+
+.terms{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:10px;
+
+    margin:18px 0;
+
+}
+
+.terms input{
+
+    margin-top:3px;
+
+    cursor:pointer;
+
+}
+
+.terms span{
+
+    font-size:14px;
+
+    color:#475569;
+
+    line-height:1.5;
+
+}
+
+/* ===========================
+   BUTTON
+=========================== */
+
+.register-card button{
+
+    width:100%;
+
+    height:50px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#2563EB;
+
+    color:#fff;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.register-card button:hover{
+
+    background:#1D4ED8;
+
+    transform:translateY(-2px);
+
+}
+
+.register-card button:active{
+
+    transform:translateY(0);
+
+}
+
+/* ===========================
+   BOTTOM LINK
+=========================== */
+
+.bottom-link{
+
+    margin-top:25px;
+
+    text-align:center;
+
+    color:#64748B;
+
+    font-size:15px;
+
+}
+
+.bottom-link a{
+
+    margin-left:8px;
+
+    color:#2563EB;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+}
+
+.bottom-link a:hover{
+
+    text-decoration:underline;
+
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:992px){
+
+    .register-page{
+
+        flex-direction:column;
+
+    }
+
+    .register-left{
+
+        padding:40px 20px;
+
+    }
+
+    .register-left img{
+
+        width:280px;
+
+        margin-bottom:20px;
+
+    }
+
+    .register-left h1{
+
+        font-size:30px;
+
+    }
+
+    .register-left p{
+
+        font-size:16px;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .register-left{
+
+        display:none;
+
+    }
+
+    .register-right{
+
+        width:100%;
+
+        padding:20px;
+
+    }
+
+    .register-card{
+
+        padding:30px;
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    .register-card{
+
+        padding:25px 18px;
+
+    }
+
+    .register-card h2{
+
+        font-size:24px;
+
+    }
+
+    .register-card p{
+
+        font-size:14px;
+
+    }
+
+    .terms{
+
+        align-items:flex-start;
+
+    }
+
+    .terms span{
+
+        font-size:13px;
+
+    }
+
+}
